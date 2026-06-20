@@ -43,7 +43,7 @@ export default function GridVsFinish({ isActive }) {
   const boundsHeight = height - margin.top - margin.bottom;
 
   const xScale = useMemo(() => {
-    return d3.scaleLinear().domain([1, 20]).range([0, boundsWidth]);
+    return d3.scaleLinear().domain([20, 1]).range([0, boundsWidth]);
   }, [boundsWidth]);
 
   const yScale = useMemo(() => {
