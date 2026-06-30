@@ -11,7 +11,7 @@ export default function Navbar() {
 
       <a href="#pilotos">Pilotos</a>
 
-      <a href="#equipes">Construtores</a>
+      <a href="#construtores">Construtores</a>
 
       <a href="#circuitos">Circuitos</a>
 

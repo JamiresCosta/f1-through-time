@@ -1173,3 +1173,775 @@ body {
   stroke: white;
   stroke-width: 1.2;
 }
+
+.annotation-line {
+  stroke: rgba(255,255,255,.2);
+  stroke-dasharray: 4;
+}
+
+.annotation-text {
+  fill: #ddd;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#moderna {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.team-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dominance-line {
+  stroke: rgba(255,255,255,0.25);
+  stroke-width: 3;
+  fill: none;
+  transition: opacity 1s ease;
+}
+
+.dominance-node {
+  cursor: pointer;
+
+  transition:
+    r 0.7s ease,
+    transform 0.3s ease;
+}
+
+.dominance-node:hover {
+  filter: brightness(1.15);
+}
+
+.annotation-text {
+  fill: #d6d6d6;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.constructor-bar {
+  fill: rgba(225, 6, 0, 0.75);
+
+  transition:
+    width 1s ease,
+    opacity 0.4s ease;
+}
+
+.constructor-bar:hover {
+  fill: #e10600;
+  cursor: pointer;
+}
+
+.dynasty-dot {
+  fill: rgba(225, 6, 0, 0.75);
+
+  transition:
+    r 0.5s ease,
+    opacity 0.4s ease;
+}
+
+.dynasty-dot:hover {
+  fill: #e10600;
+  cursor: pointer;
+}
+
+.dynasty-dot.ferrari {
+  fill: #e10600;
+}
+
+.dynasty-dot.mclaren {
+  fill: #ff8700;
+}
+
+.dynasty-dot.williams {
+  fill: #005aff;
+}
+
+.dynasty-dot.mercedes {
+  fill: #00d2be;
+}
+
+.dynasty-dot.red-bull {
+  fill: #1e41ff;
+}
+
+.nationality-bar {
+  fill: rgba(255,255,255,0.28);
+}
+
+.nationality-bar-highlight {
+  fill: #e10600;
+}
+
+.annotation-line {
+  stroke: #e10600;
+  stroke-width: 2;
+}
+
+.axis-label {
+  font-size: 13px;
+}
+
+.annotation-text {
+  fill: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+
+  animation: fadeInAnnotation 0.8s ease;
+}
+
+@keyframes fadeInAnnotation {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.longevity-bar{
+  fill:#6f6f6f;
+  transition:width 1.2s ease;
+}
+
+.longevity-top{
+  fill:#e10600;
+}
+
+.longevity-start{
+
+  fill:#ffffff;
+
+  stroke:#555;
+
+  stroke-width:2;
+
+}
+
+.longevity-end{
+
+  fill:#e10600;
+
+}
+
+.longevity-bar:hover{
+
+  fill:#ff3b30;
+
+}
+
+.longevity-bar:hover+.longevity-end{
+
+  r:6;  
+
+}
+
+.evolution-card{
+
+padding:34px;
+
+}
+
+.team-list{
+
+display:flex;
+flex-direction:column;
+gap:24px;
+
+}
+
+.team-item{
+
+display:flex;
+align-items:flex-start;
+gap:18px;
+
+opacity:0;
+transform:translateX(-25px);
+
+transition:.8s;
+
+}
+
+.team-item.visible{
+
+opacity:1;
+transform:none;
+
+}
+
+.team-dot{
+
+width:14px;
+height:14px;
+border-radius:50%;
+margin-top:8px;
+flex-shrink:0;
+
+}
+
+.team-dot.alive{
+
+background:#18d26e;
+
+}
+
+.team-dot.rename{
+
+background:#ffb000;
+
+}
+
+.team-dot.dead{
+
+background:#e10600;
+
+}
+
+.team-content{
+
+flex:1;
+
+}
+
+.team-name{
+
+display:flex;
+align-items:center;
+gap:12px;
+
+font-size:20px;
+font-weight:700;
+color:white;
+
+margin-bottom:10px;
+
+}
+
+.status{
+
+font-size:12px;
+padding:3px 10px;
+border-radius:999px;
+font-weight:600;
+
+}
+
+.status.alive{
+
+background:rgba(24,210,110,.15);
+color:#18d26e;
+
+}
+
+.status.rename{
+
+background:rgba(255,176,0,.15);
+color:#ffb000;
+
+}
+
+.status.dead{
+
+background:rgba(225,6,0,.15);
+color:#ff5555;
+
+}
+
+.timeline{
+
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+
+font-size:15px;
+line-height:1.7;
+
+color:#b8b8b8;
+
+}
+
+.arrow{
+
+margin:0 8px;
+color:#666;
+
+}
+
+.driver-node {
+
+  fill: #111;
+
+  stroke: #e10600;
+
+  stroke-width: 3;
+
+  transition: .5s;
+
+}
+
+.constructor-node {
+
+  fill: #e10600;
+
+  stroke: white;
+
+  stroke-width: 3;
+
+  transition: .5s;
+
+}
+
+.network-label {
+
+  fill: white;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  dominant-baseline: middle;
+
+  user-select: none;
+
+}
+
+.network-label:hover{
+
+  cursor: default;
+
+}
+
+.world-svg{
+
+width:100%;
+height:auto;
+
+}
+
+.world-country{
+
+fill:#1c1c1c;
+
+stroke:#3a3a3a;
+
+stroke-width:.6;
+
+}
+
+.world-point{
+
+fill:#e10600;
+
+stroke:white;
+
+stroke-width:1.2;
+
+transition:all .6s ease;
+
+cursor:pointer;
+
+}
+
+.world-point:hover{
+
+r:7;
+
+fill:#ff4040;
+
+}
+
+.world-svg {
+  width: 100%;
+  height: auto;
+}
+
+.world-country {
+  fill: #191919;
+  stroke: #444;
+  stroke-width: 0.6;
+}
+
+.map-year {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e10600;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.map-point {
+  fill: #e10600;
+  stroke: white;
+  stroke-width: 1.2;
+  cursor: pointer;
+
+  animation:
+    popPoint .35s ease,
+    pulsePoint 1.8s ease;
+}
+
+.map-point:hover {
+  r: 6;
+  fill: #ff3b30;
+}
+
+@keyframes popPoint {
+  from {
+    r: 0;
+    opacity: 0;
+  }
+
+  to {
+    r: 4;
+    opacity: 1;
+  }
+}
+
+@keyframes pulsePoint {
+  0% {
+    filter: drop-shadow(0 0 0px #ff0000);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 8px #ff0000);
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0px #ff0000);
+  }
+}
+
+.circuit-label{
+    font-size:.82rem;
+}
+
+.axis-label{
+    fill:#d8d8d8;
+}
+
+.axis-title{
+    fill:#ffffff;
+    font-weight:600;
+}
+
+.grid-line{
+    stroke:#303030;
+    stroke-dasharray:3 4;
+}
+
+/* ==========================================================
+   Circuit Expansion Timeline
+========================================================== */
+
+.expansion-svg {
+  width: 100%;
+  overflow: visible;
+}
+
+/* eixo principal */
+
+.timeline-axis {
+  stroke: rgba(255,255,255,.18);
+  stroke-width: 2;
+}
+
+.timeline-tick {
+  stroke: rgba(255,255,255,.25);
+  stroke-width: 1.5;
+}
+
+/* ligação entre eixo e cartão */
+
+.timeline-link{
+  stroke-width:1.5;
+  opacity:.65;
+}
+
+/* ponto */
+
+.timeline-dot{
+  transition:
+      r .45s ease,
+      transform .45s ease,
+      fill .45s ease;
+}
+
+.timeline-dot:hover{
+  r:8;
+}
+
+/* --------------------------- */
+/* Cards                       */
+/* --------------------------- */
+
+.timeline-card{
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease;
+
+    cursor:default;
+}
+
+.timeline-card:hover{
+
+    transform:scale(1.04);
+
+}
+
+.timeline-card-bg{
+
+    fill:rgba(255,255,255,.04);
+
+    stroke:rgba(255,255,255,.12);
+
+    stroke-width:1.2;
+
+    transition:all .3s ease;
+
+}
+
+.timeline-card:hover .timeline-card-bg{
+
+    fill:rgba(225,6,0,.10);
+
+    stroke:rgba(225,6,0,.45);
+
+}
+
+.timeline-season{
+
+    fill:#e10600;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+.timeline-country{
+
+    fill:white;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.timeline-circuit{
+
+    fill:#bdbdbd;
+
+    font-size:10px;
+
+}
+
+/* --------------------------- */
+/* contador                    */
+/* --------------------------- */
+
+.timeline-counter{
+
+    pointer-events:none;
+
+}
+
+.counter-title{
+
+    fill:#a8a8a8;
+
+    font-size:12px;
+
+}
+
+.counter-number{
+
+    fill:#ffffff;
+
+    font-size:38px;
+
+    font-weight:700;
+
+}
+
+/* --------------------------- */
+
+.timeline-arrow{
+
+    stroke:#666;
+
+    stroke-width:2;
+
+}
+
+/* --------------------------- */
+/* animações                   */
+/* --------------------------- */
+
+.timeline-card{
+
+    animation:fadeCard .7s ease;
+
+}
+
+@keyframes fadeCard{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* hover no ponto */
+
+.timeline-dot:hover{
+
+    filter:drop-shadow(0 0 6px rgba(225,6,0,.55));
+
+}
+
+/* hover no cartão */
+
+.timeline-card:hover .timeline-country{
+
+    fill:#fff;
+
+}
+
+.timeline-card:hover .timeline-circuit{
+
+    fill:#ffffff;
+
+}
+
+/* --------------------------- */
+
+.expansion-svg text{
+
+    user-select:none;
+
+}
+
+.lifetime-line{
+
+stroke-width:5;
+
+stroke-linecap:round;
+
+transition:all .8s ease;
+
+}
+
+.lifetime-line:hover{
+
+stroke-width:7;
+
+}
+
+.calendar-svg polygon{
+
+transition:.3s;
+
+}
+
+.calendar-svg polygon:hover{
+
+transform:scale(1.15);
+
+transform-origin:center;
+
+}
+
+.calendar-svg circle{
+
+transition:.3s;
+
+}
+
+.calendar-svg circle:hover{
+
+r:7;
+
+}
+
+.circuit-label{
+
+font-weight:500;
+
+}
+
+.chart-card title{
+
+pointer-events:none;
+
+}
+
+.circuit-toggle{
+
+display:flex;
+
+justify-content:center;
+
+gap:10px;
+
+margin-bottom:18px;
+
+}
+
+.circuit-toggle button{
+
+background: transparent;
+color: #bcbcbc;
+border: 1px solid #555;
+padding:8px 18px;
+
+
+
+border-radius:20px;
+
+cursor:pointer;
+
+font-size:14px;
+
+transition:.25s;
+
+}
+
+.circuit-toggle button:hover{
+
+background:#f5f5f5;
+
+}
+
+.circuit-toggle button.active{
+
+background:#e10600;
+
+color:white;
+
+border-color:#e10600;
+
+font-weight:600;
+
+}
+

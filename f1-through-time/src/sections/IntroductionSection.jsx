@@ -54,7 +54,7 @@ export default function IntroductionSection() {
 
       <StoryBlock
         title="A corrida e a distribuição de pontos"
-        text="No domingo acontece o momento mais aguardado do fim de semana: a corrida. Ao longo de dezenas de voltas, os pilotos disputam posições,
+        text="No domingo, acontece o momento mais aguardado do fim de semana: a corrida. Ao longo de dezenas de voltas, os pilotos disputam posições,
          executam estratégias de pit stop e procuram maximizar o desempenho dos carros. Ao final da prova, os pontos são distribuídos aos pilotos mais bem colocados. 
 Esses pontos alimentam duas classificações paralelas: o Campeonato de Pilotos e o Campeonato de Construtores, que definirão os campeões da temporada."
       >
