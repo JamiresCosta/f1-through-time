@@ -2,7 +2,7 @@ import banner from "../../assets/images/banner.jpg";
 
 export default function HeroBanner() {
   return (
-    <section
+    <div
       className="hero"
       style={{
         backgroundImage: `
@@ -16,6 +16,6 @@ export default function HeroBanner() {
     >
       <h1>FÓRMULA 1</h1>
       <p>75 anos de velocidade e inovação</p>
-    </section>
+    </div>
   );
 }

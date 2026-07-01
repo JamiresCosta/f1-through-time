@@ -2,6 +2,7 @@ import StoryBlock from "../components/storytelling/StoryBlock";
 import WorldCircuitsMap from "../components/visuals/WorldCircuitsMap";
 import HistoricCircuits from "../components/visuals/HistoricCircuits";
 import CircuitLifetime from "../components/visuals/CircuitLifetime";
+import CircuitsBlock from "../components/visuals/CircuitsBlock";
 
 export default function CircuitsSection() {
   return (
@@ -37,10 +38,14 @@ export default function CircuitsSection() {
       <StoryBlock
         title="Cada circuito conta uma história"
         text="Ao longo de mais de sete décadas, os circuitos da Fórmula 1 testemunharam conquistas históricas, rivalidades inesquecíveis e momentos que definiram gerações de fãs e pilotos. Alguns permaneceram praticamente inalterados desde as primeiras temporadas, tornando-se parte da identidade da categoria. Outros desapareceram, deram lugar a novas pistas ou retornaram após longos períodos de ausência. Mais do que cenários de corrida, esses autódromos representam capítulos da própria história da Fórmula 1, preservando a memória de um esporte em constante transformação."
-        > </StoryBlock>
+        > 
 
-
-
+        {(isActive) => (
+          <CircuitsBlock isActive={isActive} />
+        )}
+        
+        </StoryBlock>
+        
     </section>
   );
 }

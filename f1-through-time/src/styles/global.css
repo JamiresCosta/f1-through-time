@@ -89,7 +89,8 @@ body {
   transition: 0.3s;
 }
 
-.navbar a:hover {
+.navbar a:hover,
+.navbar a.active {
   color: #e10600;
 }
 .logo {
@@ -1185,12 +1186,6 @@ body {
   font-weight: 600;
 }
 
-#moderna {
-  display: flex;
-  flex-direction: column;
-  gap: 8rem;
-}
-
 .team-label {
   font-size: 14px;
   font-weight: 600;
@@ -1945,3 +1940,497 @@ font-weight:600;
 
 }
 
+.calendar-expansion{
+
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    padding:50px 0;
+
+}
+
+.calendar-year{
+
+    font-size:70px;
+    font-weight:700;
+
+    color:#ffffff;
+
+    margin-bottom:40px;
+
+}
+
+.calendar-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(6,70px);
+
+    gap:16px;
+
+    margin-bottom:40px;
+
+}
+
+.calendar-block{
+
+    width:70px;
+    height:22px;
+
+    border-radius:8px;
+
+    background:#e10600;
+
+    opacity:0;
+
+    transform:translateY(20px) scale(.8);
+
+    animation:blockAppear .55s forwards;
+
+}
+
+.calendar-counter{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+
+.calendar-counter span{
+
+    font-size:64px;
+
+    font-weight:700;
+
+    color:#fff;
+
+}
+
+.calendar-counter small{
+
+    color:#999;
+
+    font-size:18px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+@keyframes blockAppear{
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+.halo-card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:#171717;
+
+    border:1px solid rgba(225,6,0,.25);
+
+    border-radius:22px;
+
+    padding:36px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+.halo-card.active{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+.halo-header{
+
+    display:flex;
+
+    gap:24px;
+
+    align-items:flex-start;
+
+    margin-bottom:28px;
+
+}
+
+.halo-icon{
+
+    width:72px;
+
+    height:72px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:36px;
+
+    background:#e10600;
+
+    border-radius:18px;
+
+}
+
+.halo-header h2{
+
+    margin:0;
+
+    color:white;
+
+    font-size:2rem;
+
+}
+
+.halo-subtitle{
+
+    margin-top:8px;
+
+    color:#bcbcbc;
+
+    line-height:1.6;
+
+}
+
+.halo-section{
+
+    margin-top:24px;
+
+}
+
+.halo-section h3{
+
+    color:#ffffff;
+
+    margin-bottom:10px;
+
+    font-size:1.25rem;
+
+}
+
+.halo-section p{
+
+    color:#cfcfcf;
+
+    line-height:1.8;
+
+}
+
+.halo-divider{
+
+    margin:40px 0;
+
+    height:1px;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.halo-title{
+
+    color:white;
+
+    margin-bottom:24px;
+
+    font-size:1.4rem;
+
+}
+
+.halo-events{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+.halo-event{
+
+    display:grid;
+
+    grid-template-columns:90px 1fr;
+
+    gap:24px;
+
+    padding:22px;
+
+    background:#202020;
+
+    border-radius:16px;
+
+    border-left:5px solid #e10600;
+
+    transition:
+        transform .35s ease,
+        background .35s ease;
+
+}
+
+.halo-event:hover{
+
+    transform:translateX(8px);
+
+    background:#262626;
+
+}
+
+.halo-year{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#e10600;
+
+}
+
+.halo-event h4{
+
+    margin:0 0 10px;
+
+    color:white;
+
+    font-size:1.1rem;
+
+}
+
+.halo-event p{
+
+    margin:0;
+
+    color:#d3d3d3;
+
+    line-height:1.7;
+
+}
+
+.halo-footer{
+
+    margin-top:36px;
+
+    padding-top:24px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+.halo-highlight{
+
+    color:white;
+
+    font-weight:600;
+
+    font-size:1.05rem;
+
+}
+
+.halo-arrow{
+
+    color:#e10600;
+
+    font-size:1.8rem;
+
+    font-weight:700;
+
+}
+
+@media(max-width:768px){
+
+    .halo-card{
+
+        padding:24px;
+
+    }
+
+    .halo-header{
+
+        flex-direction:column;
+
+    }
+
+    .halo-event{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .halo-year{
+
+        font-size:1.5rem;
+
+    }
+
+}
+
+/* ===========================
+   Manufacturers Timeline
+=========================== */
+
+.manufacturers-card{
+
+    position:relative;
+    max-width:950px;
+    margin:auto;
+    padding:40px;
+    background:#111;
+    border:1px solid #222;
+    border-radius:16px;
+
+}
+
+.manufacturers-items{
+
+    display:flex;
+    justify-content:space-between;
+    margin-top:50px;
+    position:relative;
+    z-index:2;
+
+}
+
+.manufacturers-line{
+
+    position:absolute;
+    left:70px;
+    right:70px;
+    top:118px;
+    height:2px;
+    background:#2c2c2c;
+
+}
+
+.manufacturer{
+
+    width:115px;
+    text-align:center;
+
+    opacity:0;
+    transform:translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+}
+
+.active .manufacturer{
+
+    opacity:1;
+    transform:none;
+
+}
+
+.manufacturer-dot{
+
+    width:16px;
+    height:16px;
+
+    margin:auto;
+
+    border-radius:50%;
+    background:#555;
+
+    margin-bottom:14px;
+
+}
+
+.manufacturer-original .manufacturer-dot{
+
+    background:#e10600;
+
+}
+
+.manufacturer-legacy .manufacturer-dot{
+
+    background:#cfcfcf;
+
+}
+
+.manufacturer-new .manufacturer-dot{
+
+    background:#00d27a;
+
+}
+
+.manufacturer-return .manufacturer-dot{
+
+    background:#f6b400;
+
+}
+
+.manufacturer-year{
+
+    color:#888;
+    font-size:.8rem;
+    margin-bottom:8px;
+
+}
+
+.manufacturer-name{
+
+    font-size:1.05rem;
+    font-weight:700;
+    margin-bottom:10px;
+
+}
+
+.manufacturer-description{
+
+    font-size:.82rem;
+    color:#9f9f9f;
+    line-height:1.45;
+
+}
+
+.manufacturers-footer{
+
+    margin-top:45px;
+    padding-top:25px;
+    border-top:1px solid #222;
+
+    text-align:center;
+
+    color:#d5d5d5;
+    font-size:.95rem;
+
+}
