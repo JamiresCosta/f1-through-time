@@ -218,13 +218,7 @@ export default function CircuitsBlock({ isActive }) {
       `}</style>
 
       <div className="chart-card ct-root">
-        <h2 className="ct-title">Cada circuito conta uma história</h2>
-        <p className="ct-intro">
-          Ao longo de mais de sete décadas, os circuitos da Fórmula 1 testemunharam conquistas históricas,
-          rivalidades inesquecíveis e momentos que definiram gerações de fãs e pilotos. Alguns permaneceram
-          praticamente inalterados desde as primeiras temporadas; outros desapareceram, deram lugar a novas
-          pistas ou retornaram após longos períodos de ausência.
-        </p>
+        <h2 className="ct-title">Principais circuitos da Fórmula 1</h2>
 
         <div className="ct-layout">
           <div className="ct-track-wrap">
