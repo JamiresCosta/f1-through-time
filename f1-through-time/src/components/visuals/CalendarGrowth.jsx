@@ -2,12 +2,14 @@ import { useEffect, useMemo, useState } from "react";
 import Papa from "papaparse";
 import * as d3 from "d3";
 
-export default function CalendarGrowth({ isActive })  {
+export default function CalendarGrowth({ isActive }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function loadData() {
-      const csv = await fetch("/data/f1_races.csv").then((res) => res.text());
+      const csv = await fetch("/data/f1_races.csv").then((res) =>
+        res.text()
+      );
 
       const races = Papa.parse(csv, {
         header: true,
@@ -21,7 +23,10 @@ export default function CalendarGrowth({ isActive })  {
       );
 
       const formatted = grouped
-        .map(([season, races]) => ({ season, races }))
+        .map(([season, races]) => ({
+          season,
+          races,
+        }))
         .sort((a, b) => a.season - b.season);
 
       setData(formatted);
@@ -32,7 +37,13 @@ export default function CalendarGrowth({ isActive })  {
 
   const width = 760;
   const height = 420;
-  const margin = { top: 30, right: 120, bottom: 55, left: 55 };
+
+  const margin = {
+    top: 35,
+    right: 120,
+    bottom: 55,
+    left: 55,
+  };
 
   const boundsWidth = width - margin.left - margin.right;
   const boundsHeight = height - margin.top - margin.bottom;
@@ -56,44 +67,104 @@ export default function CalendarGrowth({ isActive })  {
   if (!data.length) {
     return <div className="placeholder">Carregando...</div>;
   }
-      const firstSeason = data[0];
-      const lastSeason = data[data.length - 1];
+
+
   const xTicks = data.filter((d) => d.season % 10 === 0);
 
   return (
     <div className="chart-card">
-      <div className="chart-title">Grandes Prêmios por temporada</div>
+      <div className="chart-title">
+        Grandes Prêmios por temporada
+      </div>
 
-      <svg viewBox={`0 0 ${width} ${height}`} className="calendar-svg">
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        className="calendar-svg"
+      >
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           {yScale.ticks(5).map((tick) => (
-            <g key={tick} transform={`translate(0, ${yScale(tick)})`}>
-              <line x1={0} x2={boundsWidth} className="grid-line" />
-              <text x={-12} y={4} textAnchor="end" className="axis-label">
+            <g
+              key={tick}
+              transform={`translate(0, ${yScale(tick)})`}
+            >
+              <line
+                x1={0}
+                x2={boundsWidth}
+                className="grid-line"
+              />
+
+              <text
+                x={-12}
+                y={4}
+                textAnchor="end"
+                className="axis-label"
+              >
                 {tick}
               </text>
             </g>
           ))}
+{data.map((d) => {
+  const isFirst = d.season === 1950;
+  const isCovid = d.season === 2020;
+  const isLatest = d.season === 2026;
 
-          {data.map((d) => (
-            <rect
-            key={d.season}
-            x={xScale(d.season)}
-            y={isActive ? yScale(d.races) : boundsHeight}
-            width={xScale.bandwidth()}
-            height={isActive ? boundsHeight - yScale(d.races) : 0}
-            className="calendar-rect"
-            >
-              <title>
-                {d.season}: {d.races} corridas
-              </title>
-            </rect>
-          ))}
+  return (
+<rect
+  key={d.season}
+  x={xScale(d.season)}
+  y={isActive ? yScale(d.races) : boundsHeight}
+  width={xScale.bandwidth()}
+  height={isActive ? boundsHeight - yScale(d.races) : 0}
+  className="calendar-rect"
+  style={{
+    fill:
+      d.season === 1950 ||
+      d.season === 2020 ||
+      d.season === 2026
+        ? "#FFD54A"
+        : "#E10600",
+  }}
+>
+      <title>
+        {isFirst &&
+          `1950
+
+Primeira temporada do Campeonato Mundial de Fórmula 1.`}
+
+        {isCovid &&
+          `2020 — Pandemia de COVID-19
+
+Em outubro de 2019 a FIA previa o maior calendário da história da Fórmula 1.
+
+22 corridas haviam sido planejadas.
+
+Entretanto, 13 Grandes Prêmios foram cancelados emergencialmente, incluindo Interlagos e Mônaco.
+
+Outras 8 corridas, fora do calendário inicial, foram adicionadas para viabilizar a temporada.
+
+Calendário final: ${d.races} corridas.`}
+
+        {isLatest &&
+          `2026
+
+Campeonato atual.`}
+
+        {!isFirst &&
+          !isCovid &&
+          !isLatest &&
+          `${d.season}: ${d.races} corridas`}
+      </title>
+    </rect>
+  );
+})}
 
           {xTicks.map((d) => (
             <text
               key={d.season}
-              x={xScale(d.season) + xScale.bandwidth() / 2}
+              x={
+                xScale(d.season) +
+                xScale.bandwidth() / 2
+              }
               y={boundsHeight + 30}
               textAnchor="middle"
               className="axis-label"
@@ -101,43 +172,8 @@ export default function CalendarGrowth({ isActive })  {
               {d.season}
             </text>
           ))}
-{firstSeason && (
-  <>
-    <circle
-      cx={xScale(firstSeason.season) + xScale.bandwidth()/2}
-      cy={yScale(firstSeason.races)}
-      r={6}
-      fill="#ffd700"
-    />
-
-    <text
-      x={xScale(firstSeason.season) + 10}
-      y={yScale(firstSeason.races) - 75}
-      className="annotation-text"
-    >
-      Primeira temporada
-    </text>
-  </>
-)}
-{lastSeason && (
-  <>
-    <circle
-      cx={xScale(lastSeason.season) + xScale.bandwidth()/2}
-      cy={yScale(lastSeason.races)}
-      r={6}
-      fill="#e10600"
-    />
-
-    <text
-      x={xScale(lastSeason.season) - 150}
-      y={yScale(lastSeason.races) - 35}
-      className="annotation-text"
-    >
-      Maior calendário da história
-    </text>
-  </>
-)}
-          <text
+          
+                    <text
             x={boundsWidth / 2}
             y={boundsHeight + 50}
             textAnchor="middle"
